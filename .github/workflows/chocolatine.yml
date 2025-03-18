@@ -6,11 +6,9 @@ on:
   push:
     branches:
     - master
-    - '!ga-ignore'
   pull_request:
     branches:
     - master
-    - '!ga-ignore'
 
 jobs:
   welcome:
