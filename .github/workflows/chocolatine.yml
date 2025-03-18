@@ -2,13 +2,7 @@ name: EpiActions
 
 run-name: ${{ github.actor }} is testing out EpiActions
 
-on:
-  push:
-    branches:
-    - master
-  pull_request:
-    branches:
-    - master
+on: [push]
 
 jobs:
   test:
