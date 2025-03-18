@@ -11,7 +11,10 @@ TESTNAME = test
 CC = gcc
 
 CFLAGS = -W -Wall -Wextra -std=gnu99
-TESTFLAGS = -Wall -Wextra -lcriterion --coverage
+CRITERION_DIR = $(shell brew --prefix criterion)
+TESTFLAGS = -Wall -Wextra -I$(CRITERION_DIR)/include -L$(CRITERION_DIR)/lib -lcriterion --coverage
+
+
 
 SRC = ./main.c \
 
@@ -38,8 +41,8 @@ fclean: clean
 
 re: fclean all
 
-tests_run:	$(TESTOBJ)
-	gcc -o $(TESTNAME) $(TESTSRC) $(TESTCFLAGS)
+tests_run:	
+	$(CC) -o $(TESTNAME) $(TESTSRC) $(TESTFLAGS)
 	./$(TESTNAME)
 
 .PHONY: all clean fclean re tests_run
