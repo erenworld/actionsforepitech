@@ -22,14 +22,15 @@ jobs:
 
   check_program_compilation:
     runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
     steps:
-      - name: MAKE COMPILATION
+      - name: CHEKOUT GITHUB
         uses: actions/checkout@v4
-      - run: |
+      - name: MAKE COMPILATION
+        run: |
           make
           timeout 2 sleep 10
       - name: MAKE CLEAN COMPILATION
-        uses: actions/checkout@v4
-      - run: make clean
+        run: make clean
 
     
