@@ -2,7 +2,13 @@ name: EpiActions
 
 run-name: ${{ github.actor }} is testing out EpiActions
 
-on: [push]
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 
 jobs:
   welcome:
@@ -19,6 +25,7 @@ jobs:
           run: |
             ls ${{ github.workspace }}
         - run: echo "🍏 This job's status is ${{ job.status }}."
+        - run: echo "FINISH WELCOME"
     
   check_program_compilation:
     runs-on: ubuntu-latest
