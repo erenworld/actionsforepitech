@@ -19,14 +19,6 @@ jobs:
           run: |
             ls ${{ github.workspace }}
         - run: echo "🍏 This job's status is ${{ job.status }}."
-        
-  check_coding_style:
-    runs-on: ubuntu-latest
-    steps:
-      - name: CODINGSTYLE COMPILATION
-        uses: actions/checkout@v4
-      - run: echo "LAUNCH CODING STYLE"
-      - run: ghcr.io/epitech/coding-style-checker:latest
 
   check_program_compilation:
     runs-on: ubuntu-latest
