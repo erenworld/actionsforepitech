@@ -27,8 +27,8 @@ jobs:
         uses: actions/checkout@v4
       - name: MAKE COMPILATION
         run: |
-          timeout-minutes: 2
           make
+          echo "MAKE DONE"
       - name: MAKE CLEAN COMPILATION
         run: make clean
 
