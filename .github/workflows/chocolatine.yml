@@ -31,10 +31,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: MAKE COMPILATION
+        uses: actions/checkout@v4
       - run: |
           make
           timeout 2 sleep 10
       - name: MAKE CLEAN COMPILATION
+        uses: actions/checkout@v4
       - run: make clean
 
     
