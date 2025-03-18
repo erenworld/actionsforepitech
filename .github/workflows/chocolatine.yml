@@ -2,7 +2,13 @@ name: EpiActions
 
 run-name: ${{ github.actor }} is testing out EpiActions
 
-on: [push]
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
 
 jobs:
   test:
@@ -20,3 +26,14 @@ jobs:
             ls ${{ github.workspace }}
         - run: echo "🍏 This job's status is ${{ job.status }}."
     
+  check_program_compilation:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Check out repository code
+          uses: actions/checkout@v4
+        - name: Make compilation
+          run: |
+                make
+        - name: Make clean compilation
+          run: make clean
+      
