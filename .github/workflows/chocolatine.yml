@@ -5,12 +5,14 @@ run-name: ${{ github.actor }} is testing out EpiActions
 on:
   push:
     branches:
-    - main
-    - '!ga-ignore-'
+      - main
+    branches-ignore:
+      - "ga-ignore-*"
   pull_request:
     branches:
-    - main
-    - '!ga-ignore-'
+      - main
+    branches-ignore:
+      - "ga-ignore-*"
 
 env:
   MIRROR_URL: "mirror"
