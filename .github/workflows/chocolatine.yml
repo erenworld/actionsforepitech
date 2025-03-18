@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: CODINGSTYLE COMPILATION
+        uses: actions/checkout@v4
       - run: echo "LAUNCH CODING STYLE"
       - run: ghcr.io/epitech/coding-style-checker:latest
 
