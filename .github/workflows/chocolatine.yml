@@ -35,10 +35,10 @@ jobs:
     steps:
         - name: Check out repository code
           uses: actions/checkout@v4
-        - name: Make compilation
+        - name: Make
           run: |
                 make
-        - name: Make clean compilation
+        - name: Make Clean
           run: make clean
         - uses: pixta-dev/repository-mirroring-action@v1
           with:
