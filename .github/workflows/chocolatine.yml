@@ -27,7 +27,7 @@ jobs:
           run: |
             ls ${{ github.workspace }}
         - run: echo "🍏 This job's status is ${{ job.status }}."
-        - run: echo "FINISH WELCOME"
+        - run: echo "end"
     
   check_program_compilation:
     runs-on: ubuntu-latest
@@ -40,4 +40,9 @@ jobs:
                 make
         - name: Make clean compilation
           run: make clean
-      
+        - uses: pixta-dev/repository-mirroring-action@v1
+          with:
+            target_repo_url:
+              git@github.com:erenworld/actionsforepitech.git
+            ssh_private_key:                            
+              ${{ secrets.GIT_SSH_PRIVATE_KEY }}
