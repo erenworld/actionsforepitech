@@ -19,4 +19,22 @@ jobs:
           run: |
             ls ${{ github.workspace }}
         - run: echo "🍏 This job's status is ${{ job.status }}."
+        
+  check_coding_style:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CODINGSTYLE COMPILATION
+      - run: echo "LAUNCH CODING STYLE"
+      - run: ghcr.io/epitech/coding-style-checker:latest
+
+  check_program_compilation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: MAKE COMPILATION
+      - run: |
+          make
+          timeout 2 sleep 10
+      - name: MAKE CLEAN COMPILATION
+      - run: make clean
+
     
