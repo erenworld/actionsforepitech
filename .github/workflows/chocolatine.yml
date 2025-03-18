@@ -4,9 +4,15 @@ run-name: ${{ github.actor }} is testing out EpiActions
 
 on:
   push:
+    branches:
+      main
+      master
     branches-ignore:
       - "ga-ignore-*"
   pull_request:
+    branches:
+      main
+      master
     branches-ignore:
       - "ga-ignore-*"
 
