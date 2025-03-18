@@ -23,12 +23,12 @@ jobs:
   check_program_compilation:
     runs-on: ubuntu-latest
     steps:
-      - name: CHEKOUT GITHUB
+      - name: CHECKOUT GITHUB
         uses: actions/checkout@v4
       - name: MAKE COMPILATION
         run: |
+          timeout-minutes: 2
           make
-          timeout 2 sleep 10
       - name: MAKE CLEAN COMPILATION
         run: make clean
 
