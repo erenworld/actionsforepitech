@@ -12,11 +12,15 @@ on:
     - main
     - '!ga-ignore-'
 
+env:
+  MIRROR_URL: "mirror"
+  EXECUTABLES: "mysh"
+
 jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-        - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+        - run: echo "🎉 WELCOME !"
         - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
         - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
         - name: Check out repository code
@@ -29,16 +33,29 @@ jobs:
         - run: echo "🍏 This job's status is ${{ job.status }}."
         - run: echo "end"
     
+  check_coding_style:
+    name: "Check codingstyle"
+    runs-on: ubuntu-latest
+    container: ghcr.io/epitech/coding-style-checker:latest
+    steps:
+        - name: Check out codingstyle
+          uses: actions/checkout@v4
+        - name: Run codingstyle
+          id: check_coding_style
+          run: |
+            check $(pwd) $(pwd)
+            cat $(pwd)/coding-style-reports.log
+
   check_program_compilation:
     runs-on: ubuntu-latest
-    needs: [welcome]
+    needs: [check_coding_style]
     steps:
         - name: Check out repository code
           uses: actions/checkout@v4
-        - name: Make
-          run: |
-                make
-        - name: Make Clean
+        - name: Make compilation
+          run: make
+          timeout-minutes: 2
+        - name: Make clean compilation
           run: make clean
         - uses: pixta-dev/repository-mirroring-action@v1
           with:
