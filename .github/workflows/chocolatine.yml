@@ -43,7 +43,7 @@ jobs:
         - name: Run codingstyle
           id: check_coding_style
           run: |
-            check $(pwd) $(pwd)
+            check.sh $(pwd) $(pwd)
             cat $(pwd)/coding-style-reports.log
 
   check_program_compilation:
