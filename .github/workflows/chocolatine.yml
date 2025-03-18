@@ -30,7 +30,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v6
-        if: ${{ !startsWith(github.branch.name, 'ga-ignore-') }}
       - name: Make compilation
         run: |
           make
