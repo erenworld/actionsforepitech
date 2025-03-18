@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/erenturkoglu/Desktop/EPITECH/SEM2/DOP/actionsforepitech",
+      "program": "/Users/erenturkoglu/Desktop/EPITECH/SEM2/DOP/actionsforepitech/build/Debug/outDebug"
+    }
+  ]
+}
