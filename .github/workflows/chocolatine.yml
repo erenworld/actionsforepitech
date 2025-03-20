@@ -30,12 +30,10 @@ jobs:
               check.sh "$(pwd)" "$(pwd)"
               if [ -s "$(pwd)/coding-style-reports.log" ]; then
                 cat "$(pwd)/coding-style-reports.log"
-                exit 1
+                exit 84
               else
                 echo "No coding style errors detected."
-              fi
-              echo "No coding style errors detected."
-                break
+                exit 0
               done
 
   check_program_compilation:
