@@ -11,8 +11,9 @@ TESTNAME = test
 CC = gcc
 
 CFLAGS = -W -Wall -Wextra -std=gnu99
-CRITERION_DIR = $(shell brew --prefix criterion)
-TESTFLAGS = $(CFLAGS) -I$(CRITERION_DIR)/include -L$(CRITERION_DIR)/lib -lcriterion --coverage
+CRI_COVERAGE = -lcriterion --coverage
+CRI_DIR = $(shell brew --prefix criterion)
+TESTFLAGS = $(CFLAGS) -I$(CRI_DIR)/include -L$(CRI_DIR)/lib $(CRI_COVERAGE)
 
 SRC = ./main.c \
 
