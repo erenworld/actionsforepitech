@@ -34,6 +34,9 @@ jobs:
               else
                 echo "No coding style errors detected."
                 exit 0
+              fi
+              echo "No coding style errors detected."
+                break
               done
 
   check_program_compilation:
