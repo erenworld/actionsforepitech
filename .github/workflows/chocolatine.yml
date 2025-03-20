@@ -18,13 +18,12 @@ jobs:
   check_coding_style:
     name: check_coding_style
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/epitech/coding-style-checker:latest
+    container: ghcr.io/epitech/coding-style-checker:latest
     steps:
         - name: check_coding_style
           uses: actions/checkout@v4
 
-        - name: Run codingstyle
+        - name: Annotations
           id: check_coding_style
           run: |
             while true; do
@@ -33,9 +32,9 @@ jobs:
                 cat "$(pwd)/coding-style-reports.log"
                 exit 1
               else
-                echo "Everything is clean"
+                echo "No coding style errors detected."
               fi
-              echo "Perfect coding style"
+              echo "No coding style errors detected."
                 break
               done
 
