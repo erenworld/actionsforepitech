@@ -29,7 +29,7 @@ jobs:
               check.sh "$(pwd)" "$(pwd)"
               if [ -s "$(pwd)/coding-style-reports.log" ]; then
                 awk -F: '{
-                  print "f", $3, "l", $2, "s", "coding style error:", $1;
+                  print $3, $2, "coding style error:", $1;
                   print "::error file=Makefile,line=" $2 ",endLine=" $2 ",title=\"Coding Style Error\"::" $1
                 }' "$(pwd)/coding-style-reports.log"
                 exit 84
