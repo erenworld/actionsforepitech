@@ -27,9 +27,7 @@ jobs:
         - name: Run codingstyle
           id: check_coding_style
           run: |
-            check.sh $(pwd) $(pwd)
-            cat $(pwd)/coding-style-reports.log
-            run: |
+            while true; do
               check.sh "$(pwd)" "$(pwd)"
               if [ -s "$(pwd)/coding-style-reports.log" ]; then
                 cat "$(pwd)/coding-style-reports.log"
@@ -37,7 +35,9 @@ jobs:
               else
                 echo "Everything is clean"
               fi
-                echo "perfect coding style"
+              echo "Perfect coding style"
+                break
+              done
 
   check_program_compilation:
     runs-on: ubuntu-latest
