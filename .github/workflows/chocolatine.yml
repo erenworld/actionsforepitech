@@ -28,7 +28,7 @@ jobs:
           run: |
               check.sh "$(pwd)" "$(pwd)"
               if [ -s "$(pwd)/coding-style-reports.log" ]; then
-                awk -F: '{print ", $3 coding style error:" "$2"| ", $3}' "$(pwd)/coding-style-reports.log"
+                awk -F: '{print "f", $1, "l", $2, "s", $3}' "$(pwd)/coding-style-reports.log"
                 exit 84
               else
                 echo "Everything is clean."
