@@ -33,6 +33,7 @@ jobs:
               check.sh "$(pwd)" "$(pwd)"
               if [ -s "$(pwd)/coding-style-reports.log" ]; then
                 cat "$(pwd)/coding-style-reports.log"
+                core.setFailed('BE RIGOROUS. BE THE BEST. WRITE PROPERLY')
               else
                 echo "Everything is clean"
               fi
