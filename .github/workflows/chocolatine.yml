@@ -12,7 +12,7 @@ on:
 
 env:
   MIRROR_URL: ${{ secrets.MIRROR_URL }}
-  EXECUTABLES: "a.out"
+  EXECUTABLES: "exec"
 
 jobs:
   check_coding_style:
@@ -58,7 +58,7 @@ jobs:
     container:
       image: epitechcontent/epitest-docker
     steps:
-      - name: check_out_repo_code
+      - name: check_out_repo_codee
         uses: actions/checkout@v4
       - name: MakeTest compilation
         run: make tests_run
@@ -72,7 +72,6 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
           fetch-depth: 0
       - name: mirror
         uses: pixta-dev/repository-mirroring-action@v1
