@@ -26,13 +26,16 @@ jobs:
         - name: Annotations
           id: check_coding_style
           run: |
-            if [ -s "$(pwd)/coding-style-reports.log" ]; then
-              awk -F: '{print "File:", $1, "| Line:", $2, "| Severity:", $3}' "$(pwd)/coding-style-reports.log"
-              exit 84
-            else
-              echo "No coding style errors detected."
-              exit 0
-            fi
+              check.sh "$(pwd)" "$(pwd)"
+              if [ -s "$(pwd)/coding-style-reports.log" ]; then
+                awk -F: '{print "File:", $1, "| Line:", $2, "| Severity:", $3}' "$(pwd)/coding-style-reports.log"
+                exit 84
+              else
+                echo "Everything is clean."
+                exit 0
+              fi
+                echo "Everything is clean."
+                break
 
   check_program_compilation:
     runs-on: ubuntu-latest
