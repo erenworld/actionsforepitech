@@ -21,7 +21,7 @@ jobs:
         - name: check_coding_style
           uses: actions/checkout@v4
 
-        - name: Annotations
+        - name: "coding style error"
           id: check_coding_style
           run: |
               check.sh "$(pwd)" "$(pwd)"
