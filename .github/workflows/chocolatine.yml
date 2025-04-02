@@ -31,7 +31,6 @@ jobs:
                 }' coding-style-reports.log
                 exit 1
               fi
-                echo "Everything is clean."
                 exit 0
 
   check_program_compilation:
