@@ -1,7 +1,5 @@
 name: EpiActions
 
-run-name: ${{ github.actor }} is testing out EpiActions
-
 on:
   push:
     branches-ignore:
@@ -28,10 +26,9 @@ jobs:
           run: |
               check.sh "$(pwd)" "$(pwd)"
               if [ -s "$(pwd)/coding-style-reports.log" ]; then
-                awk -F ':' '{
-                  print $3, $2, "coding style error:", $1;
-                  print "::error file=Makefile,line=" $2 ",endLine=" $2 ",title=coding style error::" $1
-                }' "$(pwd)/coding-style-reports.log"
+                awk -F: '{
+                  print "::error error_title=" $3 " coding style error,file=" $1 ",line=" $2 "::" $4
+                }' coding-style-reports.log
                 exit 84
               fi
                 echo "Everything is clean."
