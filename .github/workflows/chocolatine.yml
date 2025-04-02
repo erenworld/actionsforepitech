@@ -26,7 +26,7 @@ jobs:
           run: |
               check.sh "$(pwd)" "$(pwd)"
               if [ -s "$(pwd)/coding-style-reports.log" ]; then
-                awk -F: '{
+                awk -F ":" '{
                   print "::error error_title=" $3 " "coding style error",file=" $1 ",line=" $2 "::" $4
                 }' coding-style-reports.log
                 exit 84
