@@ -30,8 +30,8 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ)
 	rm -f $(TESTNAME)
-	rm -f main
-	rm -f test
+			rm -f main
+		rm -f test
 	find . -name "*.o" -type f -delete
 	rm -f *.gcno *.gcda a.out
 

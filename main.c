@@ -12,3 +12,8 @@ int main(void)
     write(1,"test\n",  5);
     return 0;
 }
+
+int mao(int  age, char ***  env)
+{
+    return    0;
+}
