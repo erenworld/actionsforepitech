@@ -10,10 +10,10 @@
 int main(void)
 {
 
-
+   
 
 
     
-    write(1, "tes t\n ",    5);
+      write(1, "tes t\n ",    5);
     return 0;
 }
